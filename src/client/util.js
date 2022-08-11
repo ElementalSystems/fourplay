@@ -9,7 +9,12 @@ let cloneIn=(par,tempid,q)=>{
     return clone;
 }
 let clone=(pid,tempid)=>{
-    return cloneIn(ge(pid),tempid,'*')
+  return cloneIn(ge(pid),tempid,'*')
+}
+let cloneSP=(pid,tempid,varMap)=>{
+  let e=cloneIn(ge(pid),tempid,'*');
+  Object.keys(varMap).forEach(k=>e.style.setProperty(k,varMap[k]));  
+  return e;
 }
 let ge_qs=(id,qs)=>ge(id).querySelector(qs);
 let qs_txt=(e,qs,txt)=>e.querySelector(qs).textContent=txt;

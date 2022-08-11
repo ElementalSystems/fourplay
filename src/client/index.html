@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Turn based Demo</title>
+  <title>Four Play</title>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="style.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
@@ -23,8 +23,12 @@
   </div>
   <div id=game class="gone">
     <div id="gban">Banner Text</div>  
-    <div id=gamebrd>Board</div>
-    <button id="play" class="gone">Play Turn</button>
+    <div id=gameholder>
+      <div id=gamebrd>
+
+      </div>
+    </div>
+    
   </div>
   <script src="/socket.io/socket.io.js"></script>
   <script src="./shared.js"></script>
@@ -40,6 +44,18 @@
 <template id="displayi">
   <div class="displayi">
     <pre></pre>    
+  </div>
+</template>
+<template id="brdlev">
+  <div class="brdlev">
+    
+  </div>
+</template>
+<template id="brdspot">
+  <div class="brdspot">
+    <div class="brdmark">
+
+    </div>
   </div>
 </template>
 </html>

@@ -1,1 +1,61 @@
-<!DOCTYPE html><html lang="en"><title>Turn based Demo</title><meta charset="UTF-8"><link rel="stylesheet" href="style.min.css"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0"><body onload="init()" class="ms"><div id="lobby"><fieldset id="top"><legend>Your Name</legend><input id="nick"></fieldset><fieldset id="bot"><legend></legend><div id="menu"></div><div id="bck" class="menui">✘ Back</div></fieldset></div><div id="game" class="gone"><div id="gban">Banner Text</div><div id="gamebrd">Board</div><button id="play" class="gone">Play Turn</button></div><script src="/socket.io/socket.io.js"></script><script src="./shared.js"></script><script src="./client.js"></script><template id="menui"><div class="menui"><h1></h1><h2></h2><h3></h3></div></template><template id="displayi"><div class="displayi"><pre></pre></div></template>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Four Play</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.min.css">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+</head>
+
+<body onload="init()" class="ms">
+  <div id="lobby">
+    <fieldset id="top">
+      <legend>Your Name</legend>
+      <input type="text" id="nick">
+    </fieldset>
+    <fieldset id="bot">
+      <legend></legend>
+      <div id="menu">
+      </div>
+      <div id="bck" class="menui">✘ Back</div>
+    </fieldset>
+  </div>
+  <div id="game" class="gone">
+    <div id="gban">Banner Text</div>  
+    <div id="gameholder">
+      <div id="gamebrd">
+
+      </div>
+    </div>
+    
+  </div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="./shared.js"></script>
+  <script src="./client.js"></script>
+</body>
+<template id="menui">
+  <div class="menui">
+    <h1></h1>
+    <h2></h2>
+    <h3></h3>
+  </div>
+</template>
+<template id="displayi">
+  <div class="displayi">
+    <pre></pre>    
+  </div>
+</template>
+<template id="brdlev">
+  <div class="brdlev">
+    
+  </div>
+</template>
+<template id="brdspot">
+  <div class="brdspot">
+    <div class="brdmark">
+
+    </div>
+  </div>
+</template>
+</html>
