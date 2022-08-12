@@ -16,11 +16,6 @@ async function startGame(p1,p2) {
     await pubTurn(gs, pn ? 0 : 1,gs.p[pn ? 0 : 1],i) //inform the opponent of the move
     gs.move(i); //change the board status    
     bd.update();     
-    if (gs.tn>5) {
-      bd.setB("game over");
-      await wait(2000);
-      return false;
-    }    
     return true;
   };
 

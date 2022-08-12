@@ -118,7 +118,7 @@ body {
   transform-origin: 50% 50%;
   position: absolute;
   left:0;
-  top: -10rem;
+  top: -20rem;
   transition: top 3s;  
 }
 
@@ -130,6 +130,7 @@ body {
 .brdlev.ex {  
   animation: dropme 5s var(--off) linear infinite;
   opacity: .5;
+  pointer-events: none;
 }
 
 
@@ -140,19 +141,39 @@ body {
 
 
 .brdmark {
-  width: calc(100% - 10px);
+  position: absolute;  
+  width: 80%;
   height:calc(100% - 10px);
-  margin: 5px;
-  transform: translate3d(0,0,.1vh);
+  margin: 10%;
+  transform: translate3d(0,0,0vh);
 }
 
-.brdmark.p1 {
-  background-color: rgba(255, 0,0,.8);
+
+@keyframes flashme {
+  from {background: rgba(0, 0,255,.1); }
+  to {background: rgba(0, 0,255,.5); }
+}
+
+.brdspot.sel {
+  animation: flashme .5s linear alternate infinite;  
+}
+
+
+.brdspot.p1 .brdmark {
+  background-color: rgba(255, 0,0,.6);
   border-radius: 50%;
 }
 
-.brdmark.p2 {
-  background-color: #00F;
-  border-radius: 5%;
+.brdmark.e1 {
+  transform: rotateZ(10deg) scale(.8,.8)  translate3d(0,0,.5vh);
+}
+.brdmark.e2 {
+  transform: rotateZ(20deg) scale(.6,.6) translate3d(0,0,1vh);
+}
+
+.brdspot.p2 .brdmark {
+  background-color: rgba(0,192,128,.6);
+  border-radius: 15%;
+
 }
 

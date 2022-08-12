@@ -85,17 +85,25 @@ function m_bd(gs) {
     cloneSP("gamebrd", "brdlev", {
         "--off": "4s"
     }).classList.toggle("ex", true);
-    let update = () => {};
+    let update = () => {
+        for (var i = 0; i < 64; i += 1) {
+            bdSpts[i].classList.toggle("p1", gs.bd[i] == 1);
+            bdSpts[i].classList.toggle("p2", gs.bd[i] == 2);
+            bdSpts[i].classList.toggle("sel", false);
+        }
+    };
     let setB = t => {
         ge("gban").textContent = t;
     };
     let selMove = async () => {
         return new Promise((resolve, reject) => {
-            ge_gone("play", false);
-            geclk("play", () => {
-                ge_gone("play", true);
-                resolve(1);
-            });
+            let clkfn = j => {
+                bdSpts[j].classList.toggle("sel", gs.bd[j] == 0);
+                bdSpts[j].onclick = () => {
+                    resolve(j);
+                };
+            };
+            for (var i = 0; i < 64; i += 1) clkfn(i);
         });
     };
     return {
@@ -144,11 +152,6 @@ async function startGame(p1, p2) {
         await pubTurn(gs, pn ? 0 : 1, gs.p[pn ? 0 : 1], i);
         gs.move(i);
         bd.update();
-        if (gs.tn > 5) {
-            bd.setB("game over");
-            await wait(2e3);
-            return false;
-        }
         return true;
     };
     while (await doTurn()) {}
@@ -163,7 +166,9 @@ function m_gs(p0, p1) {
         }, {
             ...p1
         } ],
+        bd: new Array(64).fill(0),
         move: function(mv) {
+            this.bd[mv] = this.tn % 2 ? 2 : 1;
             this.tn += 1;
         }
     };

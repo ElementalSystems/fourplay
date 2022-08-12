@@ -20,11 +20,12 @@ function m_bd(gs) {
   
   
 
-  let update = () => { 
-    //say what is going on
-    //ge('gamebrd').textContent=("Turn "+gs.tn);
-
-
+  let update = () => {     
+    for (var i=0;i<64;i+=1) {
+      bdSpts[i].classList.toggle('p1',gs.bd[i]==1);
+      bdSpts[i].classList.toggle('p2',gs.bd[i]==2);
+      bdSpts[i].classList.toggle('sel',false);
+    }
   }
 
   let setB = (t) => {
@@ -33,11 +34,12 @@ function m_bd(gs) {
 
   let selMove=async () => {  
     return new Promise((resolve,reject)=>{
-      ge_gone('play',false);
-      geclk('play',()=>{
-        ge_gone('play',true);
-        resolve(1)}
-      );            
+      let clkfn=(j)=>{
+        bdSpts[j].classList.toggle('sel',gs.bd[j]==0);        
+        bdSpts[j].onclick=()=>{ resolve(j); }                  
+      }      
+      for (var i=0;i<64;i+=1) 
+        clkfn(i);     
     });
   }
 
