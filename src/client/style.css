@@ -15,10 +15,28 @@ body {
   margin:0;
 }
 
-#top, #bot {
+#top {
   padding: .5rem;
-  margin: .5rem;
+  margin: 1rem;
   position: relative;
+  --glowcol: #F0F;
+}
+
+#bot {
+  padding: .5rem;
+  margin: 1rem;
+  position: relative;
+  --glowcol: #0FF;
+}
+
+
+#top input {
+  width:95%;
+  background:none;
+  color: #fff;
+  border: none;
+  font-size: 3rem;
+  padding: .5rem;
 }
 
 
@@ -32,9 +50,7 @@ body {
 .menui {
   cursor: pointer;
   position: relative;
-  padding: 1em;
-  background-color: #FFF;
-  border: 1px solid #000;
+  padding: 1rem;
   margin: 1rem;
 }
 
@@ -51,18 +67,14 @@ body {
   font-size: 2rem;
   text-align: center;
   padding: 0;
-  margin: .5rem 0 0 4rem;
-  color: #000;
-  text-shadow: 0px 1px 0px rgba(255, 255, 255, .3), 0px -1px 0px rgba(0, 0, 0, .7);
+  margin: .5rem 0 0 4rem;  
 }
 
 .menui h3 {
   font-size: 1rem;
   text-align: center;
   font-weight: lighter;
-  margin: .1rem 0 .2rem 2.5rem;
-  color: #444;
-  text-shadow: 0px 1px 0px rgba(255, 255, 255, .3), 0px -1px 0px rgba(0, 0, 0, .7);
+  margin: .1rem 0 .2rem 2.5rem;  
 }
 
 .no {
@@ -137,7 +149,9 @@ body {
 .brdspot {
   margin:5px;
   border: 3px solid #00F;  
+  pointer-events: none;
 }
+
 
 
 .brdmark {
@@ -146,6 +160,7 @@ body {
   height:calc(100% - 10px);
   margin: 10%;
   transform: translate3d(0,0,0vh);
+  pointer-events: none;
 }
 
 
@@ -156,6 +171,7 @@ body {
 
 .brdspot.sel {
   animation: flashme .5s linear alternate infinite;  
+  pointer-events:all;
 }
 
 
@@ -177,3 +193,54 @@ body {
 
 }
 
+
+@keyframes pulsate {
+    
+  100% {
+      text-shadow:
+      0 0 4px #fff,
+      0 0 11px #fff,
+      0 0 19px #fff,
+      0 0 40px var(--glowcol),
+      0 0 80px var(--glowcol),
+      0 0 90px var(--glowcol),
+      0 0 100px var(--glowcol),
+      0 0 150px var(--glowcol);
+  }
+  
+  0% {
+    text-shadow:
+    0 0 2px #fff,
+    0 0 4px #fff,
+    0 0 6px #fff,
+    0 0 10px var(--glowcol),
+    0 0 45px var(--glowcol),
+    0 0 55px var(--glowcol),
+    0 0 70px var(--glowcol),
+    0 0 80px var(--glowcol);
+  }
+}
+
+.neon {
+  color: #fff;
+  --glowcol: #F00;
+  text-shadow:
+    0 0 7px #fff,
+    0 0 10px #fff,
+    0 0 21px #fff,
+    0 0 42px var(--glowcol),
+    0 0 82px var(--glowcol),
+    0 0 92px var(--glowcol),
+    0 0 102px var(--glowcol),
+    0 0 151px var(--glowcol);
+  animation: pulsate 1s alternate infinite;
+  border: 0.2rem solid #fff;
+  
+  box-shadow: 0 0 .2rem #fff,
+            0 0 .2rem #fff,
+            0 0 2rem var(--glowcol),
+            0 0 0.8rem var(--glowcol),
+            0 0 2.8rem var(--glowcol),
+            inset 0 0 1.3rem var(--glowcol),
+            inset 0 0 2rem var(--glowcol);   
+}

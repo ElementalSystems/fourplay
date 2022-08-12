@@ -5,7 +5,7 @@
 async function selTurn(gs, bd, p, pn) {
   switch (p.t) {
     case 'l':
-      bd.setB("Your turn to play, "+p.n);
+      //bd.setB("Your turn to play, "+p.n);
       return await bd.selMove();
     case 'r':
       bd.setB("Waiting for "+p.n+" to play...");

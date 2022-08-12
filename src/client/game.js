@@ -11,7 +11,8 @@ async function startGame(p1,p2) {
   let doTurn = async () => {
     let pn = gs.tn % 2; //which player    
     bd.update();
-    bd.setB(gs.p[pn].n + "'s turn");    
+    console.log(gs);
+    bd.setB(gs.p[pn].n + "'s turn Score "+gs.sc.p1+" vs "+gs.sc.p2 + " --- Left "+gs.sc.av);    
     let i=await selTurn(gs, bd, gs.p[pn],pn); //ask this player for his move
     await pubTurn(gs, pn ? 0 : 1,gs.p[pn ? 0 : 1],i) //inform the opponent of the move
     gs.move(i); //change the board status    

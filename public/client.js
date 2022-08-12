@@ -116,7 +116,6 @@ function m_bd(gs) {
 async function selTurn(gs, bd, p, pn) {
     switch (p.t) {
       case "l":
-        bd.setB("Your turn to play, " + p.n);
         return await bd.selMove();
 
       case "r":
@@ -147,7 +146,8 @@ async function startGame(p1, p2) {
     let doTurn = async () => {
         let pn = gs.tn % 2;
         bd.update();
-        bd.setB(gs.p[pn].n + "'s turn");
+        console.log(gs);
+        bd.setB(gs.p[pn].n + "'s turn Score " + gs.sc.p1 + " vs " + gs.sc.p2 + " --- Left " + gs.sc.av);
         let i = await selTurn(gs, bd, gs.p[pn], pn);
         await pubTurn(gs, pn ? 0 : 1, gs.p[pn ? 0 : 1], i);
         gs.move(i);
@@ -167,9 +167,43 @@ function m_gs(p0, p1) {
             ...p1
         } ],
         bd: new Array(64).fill(0),
+        ls: new Array(allLines.length),
+        sc: {
+            p1: 0,
+            p2: 0,
+            av: 0
+        },
         move: function(mv) {
             this.bd[mv] = this.tn % 2 ? 2 : 1;
+            this.analysis();
             this.tn += 1;
+        },
+        analysis: function() {
+            this.sc.p1 = this.sc.p2 = this.sc.av = 0;
+            allLines.forEach((v, i) => {
+                this.ls[i] = {
+                    p1: 0,
+                    p2: 0,
+                    scored: 0,
+                    open: true
+                };
+                v.forEach(li => {
+                    if (this.bd[li] == 1) this.ls[i].p1 += 1;
+                    if (this.bd[li] == 2) this.ls[i].p2 += 1;
+                });
+                if (this.ls[i].p1 == 4) {
+                    this.ls[i].scored = 1;
+                    this.ls[i].open = false;
+                    this.sc.p1 += 1;
+                }
+                if (this.ls[i].p2 == 4) {
+                    this.ls[i].scored = 2;
+                    this.ls[i].open = false;
+                    this.sc.p2 += 1;
+                }
+                if (this.ls[i].p1 > 0 && this.ls[i].p2 > 0) this.ls[i].open = false;
+                if (this.ls[i].open) this.sc.av += 1;
+            });
         }
     };
 }
@@ -353,6 +387,7 @@ function start_lobby() {
 }
 
 function init() {
+    start_lobby();
     p1 = {
         n: "Play1",
         t: "l"
@@ -361,7 +396,6 @@ function init() {
         n: "Player 2",
         t: "l"
     };
-    startGame(p1, p2);
 }
 
 let m_main = [ {
