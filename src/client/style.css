@@ -4,15 +4,17 @@
   transform-style: preserve-3d;
 }
 
+
 body {
   margin: 0;
   font-family: sans-serif;
   overflow: hidden;
-  background: #000;
+  background: #000;  
 }
 
 #lobby {
   margin:0;
+  max-width: 40rem;
 }
 
 #top {
@@ -88,8 +90,49 @@ body {
 }
 
 #gban {
-  background: #0F0;
+  position: absolute;
+  right:0;
+  left:0;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  pointer-events: none;
 }
+
+#bantxth {
+  margin:.5rem;
+  width: 30vh;
+}
+
+#bantxt {
+  padding: .1rem;
+  font-size: 1.2rem;
+}
+
+#bantxts {
+  padding: .1rem;
+  font-size: .8rem;  
+}
+
+
+div.sc {
+  font-size: 3.5rem;  
+  padding: .5rem;
+  margin: .5rem;
+}
+
+#p1s {
+  --glowcol: #F00;
+}
+
+#p2s {
+  --glowcol: #0F0;
+}
+
+
+
 
 #game {
   width: 100%;
@@ -164,14 +207,8 @@ body {
   pointer-events: none;
 }
 
-
-@keyframes flashme {
-  from {background: rgba(0, 0,255,.1); }
-  to {background: rgba(0, 0,255,.5); }
-}
-
 .brdspot.sel {
-  animation: flashme .5s linear alternate infinite;  
+  box-shadow: inset 0 0 1rem #00F;
   pointer-events:all;
 }
 
@@ -195,50 +232,12 @@ body {
 }
 
 
-@keyframes pulsate {
-    
-  100% {
-      text-shadow:
-      0 0 4px #fff,
-      0 0 11px #fff,
-      0 0 19px #fff,
-      0 0 40px var(--glowcol),
-      0 0 80px var(--glowcol),
-      0 0 90px var(--glowcol),
-      0 0 100px var(--glowcol),
-      0 0 150px var(--glowcol);
-  }
-  
-  0% {
-    text-shadow:
-    0 0 2px #fff,
-    0 0 4px #fff,
-    0 0 6px #fff,
-    0 0 10px var(--glowcol),
-    0 0 45px var(--glowcol),
-    0 0 55px var(--glowcol),
-    0 0 70px var(--glowcol),
-    0 0 80px var(--glowcol);
-  }
-}
-
 .neon {
   color: #fff;
-  --glowcol: #F00;
+  --glowcol: #09F;
   text-shadow:
     0 0 1.5em var(--glowcol),
     0 0 3em var(--glowcol);    
-  /*animation: pulsate 1s alternate infinite;
-  text-shadow:
-    0 0 7px #fff,
-    0 0 10px #fff,
-    0 0 21px #fff,
-    0 0 42px var(--glowcol),
-    0 0 82px var(--glowcol),
-    0 0 92px var(--glowcol),
-    0 0 102px var(--glowcol),
-    0 0 151px var(--glowcol);
-  */
     
   border: 0.2rem solid #fff;
   

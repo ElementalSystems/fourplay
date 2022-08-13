@@ -91,9 +91,12 @@ function m_bd(gs) {
             bdSpts[i].classList.toggle("p2", gs.bd[i] == 2);
             bdSpts[i].classList.toggle("sel", false);
         }
+        ge("p1s").textContent = gs.sc.p1;
+        ge("p2s").textContent = gs.sc.p2;
     };
-    let setB = t => {
-        ge("gban").textContent = t;
+    let setB = (t, st) => {
+        ge("bantxt").textContent = t;
+        ge("bantxts").textContent = st;
     };
     let selMove = async () => {
         return new Promise((resolve, reject) => {
@@ -116,6 +119,7 @@ function m_bd(gs) {
 async function selTurn(gs, bd, p, pn) {
     switch (p.t) {
       case "l":
+        bd.setB("Your turn  " + p.n, "Select a spot to play");
         return await bd.selMove();
 
       case "r":
@@ -142,12 +146,11 @@ async function startGame(p1, p2) {
     ge_gone("game", false);
     let gs = m_gs(p1, p2);
     let bd = m_bd(gs);
-    bd.setB("Starting Game...");
+    bd.setB("Starting...");
     let doTurn = async () => {
         let pn = gs.tn % 2;
         bd.update();
         console.log(gs);
-        bd.setB(gs.p[pn].n + "'s turn Score " + gs.sc.p1 + " vs " + gs.sc.p2 + " --- Left " + gs.sc.av);
         let i = await selTurn(gs, bd, gs.p[pn], pn);
         await pubTurn(gs, pn ? 0 : 1, gs.p[pn ? 0 : 1], i);
         gs.move(i);
@@ -387,7 +390,6 @@ function start_lobby() {
 }
 
 function init() {
-    start_lobby();
     p1 = {
         n: "Play1",
         t: "l"
@@ -396,6 +398,7 @@ function init() {
         n: "Player 2",
         t: "l"
     };
+    startGame(p1, p2);
 }
 
 let m_main = [ {

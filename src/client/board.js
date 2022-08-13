@@ -26,10 +26,13 @@ function m_bd(gs) {
       bdSpts[i].classList.toggle('p2',gs.bd[i]==2);
       bdSpts[i].classList.toggle('sel',false);
     }
+    ge('p1s').textContent=gs.sc.p1;
+    ge('p2s').textContent=gs.sc.p2;    
   }
 
-  let setB = (t) => {
-    ge('gban').textContent = t;  
+  let setB = (t,st) => {
+    ge('bantxt').textContent = t;  
+    ge('bantxts').textContent = st;  
   }
 
   let selMove=async () => {  
