@@ -17,7 +17,6 @@ async function selTurn(gs, bd, p, pn) {
   }
 }
 
-
 async function pubTurn(gs,pn, op,i) {
   if (op.t == 'r') { //for a remote opponent send a message
     lobby.msg({
