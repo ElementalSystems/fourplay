@@ -99,7 +99,7 @@ function _init_lobby() {
     ge('menu').innerHTML = '';
     ge_qs('bot', 'legend').textContent = title;    
     let b = clone('menu', 'displayi');
-    qs_txt(b, 'pre', text);          
+    b.innerHTML=text;          
     ge_gone('bck', false);
   }
 
@@ -129,7 +129,7 @@ function _init_lobby() {
     menu("Select Game Type", false, m_main, (mi, go) => {
       switch (go) {
         case 0:
-          display("Instructions","Instructions go here");
+          display("Instructions",gameRules);
           break;
         case 1:
           menu("Player vs Computer: Opponent", true, m_ais, (ai, i) => {

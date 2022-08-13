@@ -6,7 +6,7 @@ let m_main = [
   },
   {
     t: "Play vs Computer",
-    em: '💻',
+    em: '🤖',
     lt: "Play against various AI opponents"
   },
   {
@@ -16,7 +16,7 @@ let m_main = [
   },
   {
     t: "Player vs Online Player",
-    em: '🔗',
+    em: '🌐',
     lt: "Play against a human online"
   }
 ];
@@ -35,3 +35,7 @@ let m_ais = [
     pp: { s:5, o:2, p:1, r:5, d:1 }
   },
 ];
+
+let gameRules="The game is played by placing tokens in turn on a 4 x 4 x 4 grid much like 3D tic-tac-toe.\n\n"+
+   "You need to get 4 tokens of your colour in a straight line in any directions (including vertically and diagonally) to score.\n\n"+
+   "The first player to get 7 straight lines wins.\n\nGood Luck!\n\n";

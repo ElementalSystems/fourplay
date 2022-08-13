@@ -13,23 +13,23 @@ body {
 }
 
 #lobby {
-  margin:0;
+  margin-left:auto;
+  margin-right:auto;
+  
   max-width: 40rem;
 }
 
 #top {
   padding: .5rem;
   margin: 1rem;
-  position: relative;
-  --glowcol: #F0F;
+  position: relative; 
 }
 
 
 #bot {
   padding: .5rem;
   margin: 1rem;
-  position: relative;
-  --glowcol: #F00;
+  position: relative;  
 }
 
 
@@ -48,6 +48,7 @@ body {
   right: 0rem;
   top: 0rem;
   padding: .1rem 1rem;
+  --glowcol: #9FF;
 }
 
 .menui {
@@ -77,7 +78,7 @@ body {
   font-size: 1rem;
   text-align: center;
   font-weight: lighter;
-  margin: .1rem 0 .2rem 2.5rem;  
+  margin: .1rem 0 .2rem 4rem;  
 }
 
 .no {
@@ -116,6 +117,12 @@ body {
   font-size: .8rem;  
 }
 
+.displayi {
+  padding-top:3rem;
+  white-space: pre-wrap;
+  text-align: center;
+}
+
 
 div.sc {
   font-size: 3.5rem;  
@@ -140,8 +147,8 @@ div.sc {
 }
 
 @keyframes lookme {
-  from { perspective-origin: -50% -100%; }
-  to { perspective-origin: 50% -50%; }
+  from { perspective-origin: 50% -200%; }
+  to { perspective-origin: 50% -50%;  }
 }
 
 #gameholder {
@@ -151,7 +158,7 @@ div.sc {
 
   perspective: 200vh;
   perspective-origin: 50% -50%;
-  animation: lookme 1s ease-out;
+  animation: lookme 2s ease-out;
 }
 
 

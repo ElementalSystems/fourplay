@@ -6,7 +6,8 @@ async function startGame(p1,p2) {
   
   let gs = m_gs(p1,p2); //make a game
   let bd = m_bd(gs); //make a board
-  bd.setB("Starting...");
+  bd.setB("Starting Game");
+  await wait(3000);
 
   let doTurn = async () => {
     let pn = gs.tn % 2; //which player    
@@ -15,15 +16,21 @@ async function startGame(p1,p2) {
     let i=await selTurn(gs, bd, gs.p[pn],pn); //ask this player for his move
     await pubTurn(gs, pn ? 0 : 1,gs.p[pn ? 0 : 1],i) //inform the opponent of the move
     gs.move(i); //change the board status    
-    bd.update();     
+    bd.update();
+    if ((gs.sc.av==0)||(gs.sc.p1>=7)||(gs.sc.p2>=7)) return false;
     return true;
   };
 
-  while (await doTurn()) {
-    //play the turns until someone retruns false.    
-  }
-
-  lobby.reset();
+  while (await doTurn()) ;//play the turns until someone returns false.    
   
+  //show outcome
+  if (gs.sc.p1==gs.sc.p2)  
+    bd.setB("DRAW!")
+  else if (gs.sc.p1>gs.sc.p2)  
+    bd.setB(gs.p[0].n+" Wins")
+  else 
+    bd.setB(gs.p[1].n+" Wins")
+  await wait(2000);  
+  lobby.reset();  
 }
 

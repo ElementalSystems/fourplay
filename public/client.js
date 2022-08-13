@@ -146,7 +146,8 @@ async function startGame(p1, p2) {
     ge_gone("game", false);
     let gs = m_gs(p1, p2);
     let bd = m_bd(gs);
-    bd.setB("Starting...");
+    bd.setB("Starting Game");
+    await wait(3e3);
     let doTurn = async () => {
         let pn = gs.tn % 2;
         bd.update();
@@ -155,9 +156,12 @@ async function startGame(p1, p2) {
         await pubTurn(gs, pn ? 0 : 1, gs.p[pn ? 0 : 1], i);
         gs.move(i);
         bd.update();
+        if (gs.sc.av == 0 || gs.sc.p1 >= 7 || gs.sc.p2 >= 7) return false;
         return true;
     };
-    while (await doTurn()) {}
+    while (await doTurn());
+    if (gs.sc.p1 == gs.sc.p2) bd.setB("DRAW!"); else if (gs.sc.p1 > gs.sc.p2) bd.setB(gs.p[0].n + " Wins"); else bd.setB(gs.p[1].n + " Wins");
+    await wait(2e3);
     lobby.reset();
 }
 
@@ -311,7 +315,7 @@ function _init_lobby() {
         ge("menu").innerHTML = "";
         ge_qs("bot", "legend").textContent = title;
         let b = clone("menu", "displayi");
-        qs_txt(b, "pre", text);
+        b.innerHTML = text;
         ge_gone("bck", false);
     };
     let enter_mp = () => {
@@ -335,7 +339,7 @@ function _init_lobby() {
         menu("Select Game Type", false, m_main, (mi, go) => {
             switch (go) {
               case 0:
-                display("Instructions", "Instructions go here");
+                display("Instructions", gameRules);
                 break;
 
               case 1:
@@ -390,6 +394,7 @@ function start_lobby() {
 }
 
 function init() {
+    start_lobby();
     p1 = {
         n: "Play1",
         t: "l"
@@ -398,7 +403,6 @@ function init() {
         n: "Player 2",
         t: "l"
     };
-    startGame(p1, p2);
 }
 
 let m_main = [ {
@@ -407,7 +411,7 @@ let m_main = [ {
     lt: "Learn the simple rules"
 }, {
     t: "Play vs Computer",
-    em: "💻",
+    em: "🤖",
     lt: "Play against various AI opponents"
 }, {
     t: "Player vs Local Player",
@@ -415,7 +419,7 @@ let m_main = [ {
     lt: "Play against a friend on one device"
 }, {
     t: "Player vs Online Player",
-    em: "🔗",
+    em: "🌐",
     lt: "Play against a human online"
 } ];
 
@@ -442,6 +446,8 @@ let m_ais = [ {
         d: 1
     }
 } ];
+
+let gameRules = "The game is played by placing tokens in turn on a 4 x 4 x 4 grid much like 3D tic-tac-toe.\n\n" + "You need to get 4 tokens of your colour in a straight line in any directions (including vertically and diagonally) to score.\n\n" + "The first player to get 7 straight lines wins.\n\nGood Luck!\n\n";
 
 let ge = id => document.getElementById(id);
 
