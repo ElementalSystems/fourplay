@@ -22,11 +22,12 @@ body {
   --glowcol: #F0F;
 }
 
+
 #bot {
   padding: .5rem;
   margin: 1rem;
   position: relative;
-  --glowcol: #0FF;
+  --glowcol: #F00;
 }
 
 
@@ -50,12 +51,12 @@ body {
 .menui {
   cursor: pointer;
   position: relative;
-  padding: 1rem;
-  margin: 1rem;
+  padding: .5rem;
+  margin: .5rem;
 }
 
 .menui h1 {
-  font-size: 4rem;
+  font-size: 3rem;
   position: absolute;
   top: 0;
   left: 0;
@@ -64,7 +65,7 @@ body {
 }
 
 .menui h2 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   text-align: center;
   padding: 0;
   margin: .5rem 0 0 4rem;  
@@ -225,6 +226,10 @@ body {
   color: #fff;
   --glowcol: #F00;
   text-shadow:
+    0 0 1.5em var(--glowcol),
+    0 0 3em var(--glowcol);    
+  /*animation: pulsate 1s alternate infinite;
+  text-shadow:
     0 0 7px #fff,
     0 0 10px #fff,
     0 0 21px #fff,
@@ -233,7 +238,8 @@ body {
     0 0 92px var(--glowcol),
     0 0 102px var(--glowcol),
     0 0 151px var(--glowcol);
-  /*animation: pulsate 1s alternate infinite;*/
+  */
+    
   border: 0.2rem solid #fff;
   
   box-shadow: 0 0 .2rem #fff,
