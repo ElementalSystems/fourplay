@@ -1,13 +1,13 @@
-function m_gs(p0, p1) {
+function m_gs(p0, p1,ogs) {
   return  {
-    tn: 0, //turn number
+    tn: ogs?ogs.tn:0, //turn number
     p: [{
       ...p0,
       
     }, {
       ...p1,      
     }],
-    bd: (new Array(64)).fill(0), 
+    bd: ogs?[...ogs.bd]:(new Array(64)).fill(0), 
     ls: (new Array(allLines.length)),
     sc: { p1:0, p2:0, av:0 },
     move: function (mv) {

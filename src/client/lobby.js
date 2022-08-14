@@ -74,8 +74,7 @@ function _init_lobby() {
 
   geclk("bck", () => {
     ae.clk();
-    leave_mp();
-    reset();
+    leave_mp();    
   });
 
 
@@ -112,7 +111,8 @@ function _init_lobby() {
   }
 
   leave_mp = () => {
-    socket.emit("ll", {})
+    if (socket)
+      socket.emit("ll", {})
     ge_no('top', false);
     reset();
   }

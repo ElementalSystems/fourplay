@@ -13,7 +13,8 @@ async function selTurn(gs, bd, p, pn) {
         lobby.waitMsg((m) => resolve(m.move)); //wait for remote player to pub that turn.
       });
     case 'a': 
-      return 0;
+      bd.setB(p.n+" is thinking...");      
+      return await aiPlay(gs);
   }
 }
 

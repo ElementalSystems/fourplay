@@ -26,13 +26,25 @@ let m_ais = [
     t: "Easy Opponent",
     em: "💻",
     lt:"Not very good, does it's best to score.",
-    pp: { s:4, o:1, p:0, r:5, d:0 }
+    pp: { d:1, pm: 1, opm:1, rn: 100  }
   },
   {
     t: "Novice",
     em: "💻",
     lt:"A novice player, good to learn against.",
-    pp: { s:5, o:2, p:1, r:5, d:1 }
+    pp: { d:1, pm: 1, opm:1, rn: 1 }
+  },
+  {
+    t: "Better",
+    em: "💻",
+    lt:"A novice player, good to learn against.",
+    pp: { d:2, pm: 1, opm:1, rn: 1 }
+  },
+  {
+    t: "Deep",
+    em: "💻",
+    lt:"A novice player, good to learn against.",
+    pp: { d:3, pm: 1, opm:1, rn: 1 }
   },
 ];
 
