@@ -2,7 +2,7 @@
 function init() {
   start_lobby();
   p1 = {
-    n: "Play1",
+    n: "Player 1",
     t: 'l'
   };
   p2 = {

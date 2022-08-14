@@ -16,6 +16,15 @@ async function startGame(p1,p2) {
     await pubTurn(gs, pn ? 0 : 1,gs.p[pn ? 0 : 1],i) //inform the opponent of the move
     gs.move(i); //change the board status    
     bd.update();
+    bd.setB(gs.p[pn].n+" has played.")
+    await wait(1000);
+    //was there score
+    let sl=gs.lastSLs();    
+    if (sl.length) {
+      bd.setB(gs.p[pn].n+" Scored.")
+      sl.forEach(l=>bd.flashLine(l))
+      await wait(2000);      
+    }
     if ((gs.sc.av==0)||(gs.sc.p1>=7)||(gs.sc.p2>=7)) return false;
     return true;
   };

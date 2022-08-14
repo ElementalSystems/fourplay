@@ -26,7 +26,7 @@ let m_ais = [
     t: "Easy Opponent",
     em: "💻",
     lt:"Not very good, does it's best to score.",
-    pp: { d:1, pm: 1, opm:1, rn: 100  }
+    pp: { d:1, pm: 1, opm:1, rn: 20  }
   },
   {
     t: "Novice",

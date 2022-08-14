@@ -106,20 +106,37 @@ body {
 }
 
 #gnames {
-  display:none;
+  display:flex;
   text-align: center;
-  /*display: flex;*/
   flex-direction: row;
   justify-content: center;
-  align-items: space-between;
+  pointer-events: none;  
 }
 
+#p1n, #p2n {  
+  writing-mode: vertical-lr;
+  padding: .2rem;
+}
+#p1n {
+  --glowcol: #F00;
+}
+
+#p2n {
+  --glowcol: #0F0;
+}
 
 
 #bantxth {
   margin:.5rem;
   width: 30vh;
+  height: 4rem;
 }
+
+#sp {
+  margin:.5rem;
+  width: 35vh;
+}
+
 
 #bantxt {
   padding: .1rem;
@@ -217,7 +234,10 @@ div.sc {
   pointer-events: none;
 }
 
-
+@keyframes hl {
+  from { background: var(--markcol); }
+  to { background: rgba(255,255,255,.5); }
+}
 
 .brdmark {
   position: absolute;  
@@ -234,22 +254,46 @@ div.sc {
 }
 
 
-.brdspot.p1 .brdmark {
-  background-color: rgba(255, 0,0,.6);
-  border-radius: 50%;
+.brdmark {
+  transform: rotateZ(45deg);
+  background-color: var(--markcol);
 }
 
 .brdmark.e1 {
-  transform: rotateZ(10deg) scale(.8,.8)  translate3d(0,0,.5vh);
+  transform: rotateZ(45deg) scale(.8,.8)  translate3d(0,0,.5vh);
 }
+
 .brdmark.e2 {
-  transform: rotateZ(20deg) scale(.6,.6) translate3d(0,0,1vh);
+  transform: rotateZ(45deg) scale(.6,.6) translate3d(0,0,1vh);
+}
+
+.brdspot.high .brdmark {
+  animation: hl .125s alternate 8;
+}
+
+
+@keyframes fl {
+  0% { background: var(--markcol); }
+  5% { background: rgba(255,255,255,1); }
+  30% { background: rgba(255,255,255,1); }
+  35% { background: var(--markcol); }  
+  100% { background: var(--markcol); }  
+}
+
+.brdspot.fl .brdmark.e1 {
+  animation: fl 1s linear var(--off) normal 2;
+}
+
+
+
+.brdspot.p1 .brdmark {
+  --markcol: rgba(255, 0,0,.6);
+  border-radius: 50%;  
 }
 
 .brdspot.p2 .brdmark {
-  background-color: rgba(0,192,128,.6);
-  border-radius: 15%;
-
+  --markcol: rgba(0,192,128,.6);
+  border-radius: 5%;
 }
 
 
