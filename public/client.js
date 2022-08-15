@@ -364,8 +364,13 @@ function _init_lobby() {
         ae.clk();
         leave_mp();
     });
+    geclk("nxt", () => {
+        ae.clk();
+        reset();
+    });
     menu = (title, showB, ops, act) => {
         ge("menu").innerHTML = "";
+        ge_gone("top", false);
         ge_qs("bot", "legend").textContent = title;
         ops.forEach((op, i) => {
             let b = clone("menu", "menui");
@@ -378,13 +383,18 @@ function _init_lobby() {
             };
         });
         ge_gone("bck", !showB);
+        ge_gone("nxt", true);
     };
     display = (title, text) => {
+        ge_gone("lobby", false);
+        ge_gone("game", true);
+        ge_gone("top", true);
         ge("menu").innerHTML = "";
         ge_qs("bot", "legend").textContent = title;
         let b = clone("menu", "displayi");
         b.innerHTML = text;
-        ge_gone("bck", false);
+        ge_gone("bck", true);
+        ge_gone("nxt", false);
     };
     let enter_mp = () => {
         socket.emit("el", {
@@ -407,11 +417,11 @@ function _init_lobby() {
         menu("Select Game Type", false, m_main, (mi, go) => {
             switch (go) {
               case 0:
-                display("Instructions", gameRules);
+                display("The Rules of Four-Play", gameRules);
                 break;
 
               case 1:
-                menu("Player vs Computer: Opponent", true, m_ais, (ai, i) => {
+                menu("Choose your opponent", true, m_ais, (ai, i) => {
                     p1 = {
                         n: ge("nick").value,
                         t: "l"
@@ -447,6 +457,7 @@ function _init_lobby() {
         waitMsg: waitMsg,
         msg: msg,
         menu: menu,
+        display: display,
         enter_mp: enter_mp,
         reset: reset,
         gamedone: gamedone
@@ -458,7 +469,7 @@ var lobby = null;
 function start_lobby() {
     if (!lobby) lobby = _init_lobby();
     ge("nick").value = oneof([ "Fried", "Crazy", "Wise", "Smart", "Clever" ]) + " " + oneof([ "Alex", "Storm", "Petra", "Zena" ]) + " " + +new Date() % 100;
-    lobby.reset();
+    lobby.display("", introText);
 }
 
 function init() {
@@ -474,37 +485,47 @@ function init() {
 }
 
 let m_main = [ {
-    t: "How to Play",
+    t: "The Devil's Rules",
     em: "🎓",
-    lt: "Learn the simple rules"
+    lt: "Learn the simple rules of the game"
 }, {
-    t: "Play vs Computer",
-    em: "🤖",
-    lt: "Play against various AI opponents"
+    t: "The Minions of Hell",
+    em: "⛧",
+    lt: "Practice against various demonic opponents"
 }, {
-    t: "Player vs Local Player",
+    t: "Two Player Local",
     em: "🎎",
-    lt: "Play against a friend on one device"
+    lt: "Practice against a human on one device"
 }, {
     t: "Player vs Online Player",
     em: "🌐",
-    lt: "Play against a human online"
+    lt: "Practice against a human online"
 } ];
 
 let m_ais = [ {
-    t: "Easy Opponent",
-    em: "💻",
-    lt: "Not very good, does it's best to score.",
+    t: "Servant Imp",
+    em: "👿",
+    lt: "A foolish little thing - stupid and careless",
     pp: {
         d: 1,
         pm: 1,
         opm: 1,
-        rn: 20
+        rn: 40
     }
 }, {
-    t: "Novice",
-    em: "💻",
-    lt: "A novice player, good to learn against.",
+    t: "Goblin Intellectual",
+    em: "😈",
+    lt: "A well trained player, but goblins aren't bright",
+    pp: {
+        d: 1,
+        pm: 1,
+        opm: 1,
+        rn: 10
+    }
+}, {
+    t: "Vengence Demon",
+    em: "👺",
+    lt: "Plays well but easy to trick.",
     pp: {
         d: 1,
         pm: 1,
@@ -512,9 +533,19 @@ let m_ais = [ {
         rn: 1
     }
 }, {
-    t: "Better",
-    em: "💻",
-    lt: "A novice player, good to learn against.",
+    t: "Duke of Hell",
+    em: "👹",
+    lt: "Skilled and dangerous, very hard to beat",
+    pp: {
+        d: 2,
+        pm: 1,
+        opm: 1,
+        rn: 10
+    }
+}, {
+    t: "Prince of Death",
+    em: "☠",
+    lt: "The famous prince of Four-Play",
     pp: {
         d: 2,
         pm: 1,
@@ -522,9 +553,9 @@ let m_ais = [ {
         rn: 1
     }
 }, {
-    t: "Deep",
-    em: "💻",
-    lt: "A novice player, good to learn against.",
+    t: "Satan Lord of Hell",
+    em: "✪",
+    lt: "Never Beaten by a Mortal",
     pp: {
         d: 3,
         pm: 1,
@@ -534,6 +565,8 @@ let m_ais = [ {
 } ];
 
 let gameRules = "The game is played by placing tokens in turn on a 4 x 4 x 4 grid much like 3D tic-tac-toe.\n\n" + "You need to get 4 tokens of your colour in a straight line in any directions (including vertically and diagonally) to score.\n\n" + "The first player to get 7 straight lines wins.\n\nGood Luck!\n\n";
+
+let introText = "After death you find your soul in the balance; you must beat the devil in a game of chance or skill to save yourself.\n\n" + "You choose tic-tac-toe, but only if you could go first.....\n " + "'Well', said the Devil, 'we have a version of that around here - we call it Four-Play.\n" + "'It is just like tic-tac-toe, and you can go first.'\n\n\n";
 
 let ge = id => document.getElementById(id);
 

@@ -1,3 +1,5 @@
+
+
 * {
   -webkit-backface-visibility: visible;
   backface-visibility:visible;
@@ -10,16 +12,53 @@ body {
   font-family: sans-serif;
   overflow: hidden;
   background: #000;  
+
 }
 
 #lobby {
   margin-left:auto;
   margin-right:auto;
-  
   max-width: 40rem;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;  
+  transition: height 2s;
+}
+
+#lobby.gone {
+  height: 0;
+  overflow: hidden;
+  transition: height 1s;
+}
+
+
+#tit {
+  --glowcol: #A00;
+  padding: .5rem;
+  margin: 1rem;
+  text-align: center;
+}
+
+#tit h1 {
+  margin:0;
+  padding:0;
+  font-size: 2rem;
+  font-weight: lighter;
+  color: #F70;
+  text-shadow: 0 0 20px #f70 ;  
+}
+
+#tit h2 {
+  font-size: 1rem;
+  font-weight: lighter;
+  color: #F99;
+  margin:0;
+  padding:0;
+  
 }
 
 #top {
+  --glowcol: #F70;
   padding: .5rem;
   margin: 1rem;
   position: relative; 
@@ -29,7 +68,9 @@ body {
 #bot {
   padding: .5rem;
   margin: 1rem;
-  position: relative;  
+  position: relative;    
+  flex-grow: 1;
+  overflow-y: auto;
 }
 
 
@@ -48,14 +89,25 @@ body {
   right: 0rem;
   top: 0rem;
   padding: .1rem 1rem;
-  --glowcol: #9FF;
+  --glowcol: #F70;
 }
+
+#nxt {
+  position: absolute;
+  right: 0rem;
+  bottom: 0rem;
+  padding: .1rem 1rem;
+  --glowcol: #F70;
+}
+
 
 .menui {
   cursor: pointer;
   position: relative;
   padding: .5rem;
   margin: .5rem;
+  border-top:1px solid #F70;
+  border-bottom:1px solid #F70;
 }
 
 .menui h1 {
@@ -64,6 +116,8 @@ body {
   top: 0;
   left: 0;
   margin: 0;
+  width: 4rem;
+  text-align: center;
   font-weight: normal;
 }
 
@@ -82,7 +136,7 @@ body {
 }
 
 .no {
-  opacity: .2;
+  opacity: .5;
   pointer-events: none;
 }
 
@@ -118,15 +172,16 @@ body {
   padding: .2rem;
 }
 #p1n {
-  --glowcol: #F00;
+  --glowcol: #0F0;
 }
 
 #p2n {
-  --glowcol: #0F0;
+  --glowcol: #F00;
 }
 
 
 #bantxth {
+  --glowcol: #00F;
   margin:.5rem;
   width: 30vh;
   height: 4rem;
@@ -162,11 +217,11 @@ div.sc {
 }
 
 #p1s {
-  --glowcol: #F00;
+  --glowcol: #0F0;
 }
 
 #p2s {
-  --glowcol: #0F0;
+  --glowcol: #F00;
 }
 
 
@@ -202,7 +257,7 @@ div.sc {
 
 
 .brdlev {
-  border: 3px solid #55F;
+  border: 3px solid #009;
   height: var(--bs);
   width: var(--bs);
   display: grid;
@@ -249,7 +304,7 @@ div.sc {
 }
 
 .brdspot.sel {
-  box-shadow: inset 0 0 1rem #00F;
+  /*box-shadow: inset 0 0 1rem #FFF;*/
   pointer-events:all;
 }
 
@@ -287,19 +342,19 @@ div.sc {
 
 
 .brdspot.p1 .brdmark {
-  --markcol: rgba(255, 0,0,.6);
-  border-radius: 50%;  
+  --markcol: rgba(0, 192,128,.6);
+  border-radius: 5%;  
 }
 
 .brdspot.p2 .brdmark {
-  --markcol: rgba(0,192,128,.6);
-  border-radius: 5%;
+  --markcol: rgba(255,0,0,.6);
+  border-radius: 50%;
 }
 
 
 .neon {
   color: #fff;
-  --glowcol: #09F;
+  --glowcol: #F00;
   text-shadow:
     0 0 1.5em var(--glowcol),
     0 0 3em var(--glowcol);    

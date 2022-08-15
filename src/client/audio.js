@@ -5,8 +5,10 @@ var _aud_MV=1; //master volumne
 function tone(length,type) {
   if ((!_audC)||(!_aud_MV)) return { //a null note
     f:function() { return this; },
-    v:function() { return this; } };
-  var current= _audC.currentTime;
+    v:function() { return this; } 
+  };
+  
+  var current = _audC.currentTime;
   var oscillator = _audC.createOscillator();
   var gain = _audC.createGain();
 

@@ -77,9 +77,16 @@ function _init_lobby() {
     leave_mp();    
   });
 
+  geclk("nxt", () => {
+    ae.clk();
+    reset();    
+  });
+
+
 
   menu = (title, showB, ops, act) => {
     ge('menu').innerHTML = '';
+    ge_gone('top',false);
     ge_qs('bot', 'legend').textContent = title;
     ops.forEach((op, i) => {
       let b = clone('menu', 'menui');
@@ -92,14 +99,21 @@ function _init_lobby() {
       };
     })
     ge_gone('bck', !showB)
+    ge_gone('nxt', true)
   }
 
   display = (title, text) => {
+    ge_gone("lobby",false);
+    ge_gone("game",true);
+  
+    ge_gone('top',true);
     ge('menu').innerHTML = '';
     ge_qs('bot', 'legend').textContent = title;    
     let b = clone('menu', 'displayi');
     b.innerHTML=text;          
-    ge_gone('bck', false);
+    ge_gone('bck', true);
+    ge_gone('nxt', false);
+    
   }
 
 
@@ -129,10 +143,10 @@ function _init_lobby() {
     menu("Select Game Type", false, m_main, (mi, go) => {
       switch (go) {
         case 0:
-          display("Instructions",gameRules);
+          display("The Rules of Four-Play",gameRules);
           break;
         case 1:
-          menu("Player vs Computer: Opponent", true, m_ais, (ai, i) => {
+          menu("Choose your opponent", true, m_ais, (ai, i) => {
               p1 = {
                 n: ge('nick').value,
                 t: 'l'
@@ -171,6 +185,7 @@ function _init_lobby() {
     waitMsg,
     msg,
     menu,
+    display,
     enter_mp,
     reset,
     gamedone,
@@ -185,5 +200,5 @@ function start_lobby() {
   ge('nick').value =  oneof(['Fried','Crazy','Wise','Smart','Clever'])+' '+
      oneof(['Alex','Storm','Petra','Zena'])+' '+(+(new Date()) % 100);
   //set up the intro board
-  lobby.reset();
+  lobby.display("",introText);
 }
