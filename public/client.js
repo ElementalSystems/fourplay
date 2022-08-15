@@ -469,7 +469,7 @@ var lobby = null;
 
 function start_lobby() {
     if (!lobby) lobby = _init_lobby();
-    ge("nick").value = oneof([ "Fried", "Crazy", "Wise", "Smart", "Clever" ]) + " " + oneof([ "Alex", "Storm", "Petra", "Zena" ]) + " " + +new Date() % 100;
+    ge("nick").value = oneof([ "Alex", "Storm", "Petra", "Zena", "Xeno", "Yuman", "Jyn", "Raith" ]) + oneof([ " ⨊ ", " ∐ ", " § ", " ∞ ", " ⌘ ", " ★ ", "-", "de", "a" ]) + oneof([ "Xi", "Gen", "My", "Ti", "Xi" ]);
     lobby.display("", introText);
 }
 
