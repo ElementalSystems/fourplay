@@ -41,9 +41,10 @@ function m_bd(gs) {
     ge('p2s').textContent=gs.sc.p2;    
   }
 
-  let setB = (t,st) => {
+  let setB = (t,st,big) => {
     ge('bantxt').textContent = t;  
     ge('bantxts').textContent = st;  
+    ge('bantxth').classList.toggle('big',!!big);
   }
 
   let selMove=async () => {  

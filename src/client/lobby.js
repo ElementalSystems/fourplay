@@ -140,7 +140,7 @@ function _init_lobby() {
     ge_gone("lobby",false);
     ge_gone("game",true);
   
-    menu("Select Game Type", false, m_main, (mi, go) => {
+    menu("", false, m_main, (mi, go) => {
       switch (go) {
         case 0:
           display("The Rules of Four-Play",gameRules);

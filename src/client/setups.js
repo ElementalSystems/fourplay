@@ -10,12 +10,12 @@ let m_main = [
     lt: "Practice against various demonic opponents"
   },
   {
-    t: "Two Player Local",
+    t: "Two Players Local",
     em: '🎎',
     lt: "Practice against a human on one device"
   },
   {
-    t: "Player vs Online Player",
+    t: "Two Players Online",
     em: '🌐',
     lt: "Practice against a human online"
   }

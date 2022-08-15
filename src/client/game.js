@@ -5,7 +5,7 @@ async function startGame(p1,p2) {
   
   let gs = m_gs(p1,p2); //make a game
   let bd = m_bd(gs); //make a board
-  bd.setB("Starting Game");
+  bd.setB("Starting Game","",true);
   await wait(3000);
 
   let doTurn = async () => {
@@ -36,10 +36,10 @@ async function startGame(p1,p2) {
   if (gs.sc.p1==gs.sc.p2)  
     bd.setB("DRAW!")
   else if (gs.sc.p1>gs.sc.p2)  
-    bd.setB(gs.p[0].n+" Wins")
+    bd.setB(gs.p[0].n+" Wins","",true)
   else 
-    bd.setB(gs.p[1].n+" Wins")
-  await wait(2000);  
+    bd.setB(gs.p[1].n+" Wins","",true)
+  await wait(10000);  
   lobby.reset();  
 }
 

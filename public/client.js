@@ -138,9 +138,10 @@ function m_bd(gs) {
         ge("p1s").textContent = gs.sc.p1;
         ge("p2s").textContent = gs.sc.p2;
     };
-    let setB = (t, st) => {
+    let setB = (t, st, big) => {
         ge("bantxt").textContent = t;
         ge("bantxts").textContent = st;
+        ge("bantxth").classList.toggle("big", !!big);
     };
     let selMove = async () => {
         return new Promise((resolve, reject) => {
@@ -199,7 +200,7 @@ async function startGame(p1, p2) {
     ge_gone("game", false);
     let gs = m_gs(p1, p2);
     let bd = m_bd(gs);
-    bd.setB("Starting Game");
+    bd.setB("Starting Game", "", true);
     await wait(3e3);
     let doTurn = async () => {
         let pn = gs.tn % 2;
@@ -222,8 +223,8 @@ async function startGame(p1, p2) {
         return true;
     };
     while (await doTurn());
-    if (gs.sc.p1 == gs.sc.p2) bd.setB("DRAW!"); else if (gs.sc.p1 > gs.sc.p2) bd.setB(gs.p[0].n + " Wins"); else bd.setB(gs.p[1].n + " Wins");
-    await wait(2e3);
+    if (gs.sc.p1 == gs.sc.p2) bd.setB("DRAW!"); else if (gs.sc.p1 > gs.sc.p2) bd.setB(gs.p[0].n + " Wins", "", true); else bd.setB(gs.p[1].n + " Wins", "", true);
+    await wait(1e4);
     lobby.reset();
 }
 
@@ -414,7 +415,7 @@ function _init_lobby() {
     reset = () => {
         ge_gone("lobby", false);
         ge_gone("game", true);
-        menu("Select Game Type", false, m_main, (mi, go) => {
+        menu("", false, m_main, (mi, go) => {
             switch (go) {
               case 0:
                 display("The Rules of Four-Play", gameRules);
@@ -493,11 +494,11 @@ let m_main = [ {
     em: "⛧",
     lt: "Practice against various demonic opponents"
 }, {
-    t: "Two Player Local",
+    t: "Two Players Local",
     em: "🎎",
     lt: "Practice against a human on one device"
 }, {
-    t: "Player vs Online Player",
+    t: "Two Players Online",
     em: "🌐",
     lt: "Practice against a human online"
 } ];

@@ -33,7 +33,6 @@ body {
 
 
 #tit {
-  --glowcol: #A00;
   padding: .5rem;
   margin: 1rem;
   text-align: center;
@@ -43,19 +42,9 @@ body {
   margin:0;
   padding:0;
   font-size: 2rem;
-  font-weight: lighter;
-  color: #F70;
-  text-shadow: 0 0 20px #f70 ;  
+  font-weight: normal;  
 }
 
-#tit h2 {
-  font-size: 1rem;
-  font-weight: lighter;
-  color: #F99;
-  margin:0;
-  padding:0;
-  
-}
 
 #top {
   --glowcol: #F70;
@@ -185,6 +174,13 @@ body {
   margin:.5rem;
   width: 30vh;
   height: 4rem;
+  position:relative;
+  top: 0;
+  transition: transform 1s;
+}
+
+#bantxth.big {
+  transform: scale(1.5,1.5) translate3d(0,20vh,50vh);
 }
 
 #sp {
