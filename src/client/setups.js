@@ -60,10 +60,23 @@ let m_ais = [
   },
 ];
 
-let gameRules="The game is played by placing tokens in turn on a 4 x 4 x 4 cubic grid much like 3D version of tic-tac-toe.\n\n"+
+let gameRules=
+   "It's tic-tac-toe. Everyone knows how to play tic-tac-toe, right?\n\n"+
+   "Except...\n\n"+
+   "It's played on a 3D 4 x 4 x 4 cubic grid.\n\n"+
+   "On your turn make your mark on any open square. Place 4 markers in a straight line to score a point."+
+   "The first player to reach 7 points wins.\n"+
+   "Good Luck!\n\n\n"+
+   "A hint to give you hope:\n"+
+   "Markers can form a straight line in any direction - vertically, horizontally and diagonally"+
+   " across each board and through the boards.\n"+
+   "Practice against the lesser demons to steal their tricks!"
+
+
+   /*"The game is played by placing tokens in turn on a 4 x 4 x 4 cubic grid much like 3D version of tic-tac-toe.\n\n"+
    "You need to get 4 green tokens in a straight line in any directions to score.\n"+
    "A line of tokens can be in any direction including downwards through the boards vertically; diagonally and diagonally through the boards.\n\n"+
-   "The first player to get 7 straight lines wins.\n\nGood Luck!\n\n";
+   "The first player to get 7 straight lines wins.\n\nGood Luck!\n\n"*/;
 
 let introText="\nAfter death you find your soul in the balance; you must beat the devil in a game of chance or skill to save yourself.\n\n"+
    "'What - any game?', you ask while desparately trying to think of something that you are good at.\n\n"+
