@@ -70,19 +70,16 @@ let gameRules=
    "A hint to give you hope:\n"+
    "Markers can form a straight line in any direction - vertically, horizontally and diagonally"+
    " across each board and through the boards.\n"+
-   "Practice against the lesser demons to steal their tricks!"
+   "Practice against the lesser demons to steal their tricks!";
 
-
-   /*"The game is played by placing tokens in turn on a 4 x 4 x 4 cubic grid much like 3D version of tic-tac-toe.\n\n"+
-   "You need to get 4 green tokens in a straight line in any directions to score.\n"+
-   "A line of tokens can be in any direction including downwards through the boards vertically; diagonally and diagonally through the boards.\n\n"+
-   "The first player to get 7 straight lines wins.\n\nGood Luck!\n\n"*/;
-
-let introText="\nAfter death you find your soul in the balance; you must beat the devil in a game of chance or skill to save yourself.\n\n"+
-   "'What - any game?', you ask while desparately trying to think of something that you are good at.\n\n"+
-   "'I will choose tic-tac-toe.', you say at last, 'but only if I can play the first turn.'\n\n"+
-   "'Well', said the Devil, 'no problem there, we have a version of that around here - we call it 𝟜-Play. \n\n"+
-   "'It is just like tic-tac-toe, and you can go first if you think that will help.'\n\n\n"+
-   "'Perhaps you will be the first to beat me.'\n\n";
-
+let introText=
+"👤: Where am I?\n\n"+
+"👺: You're dead.\n\n"+
+"👤: What?!! It's quite warm here.\n\n"+
+"👺: Yes. You're in Hell. Deal with it.\n The good news is that you've been bad but not very bad. Your soul is in the balance. You have 1 chance to save yourself."+
+" Beat the Devil and the game of your choice and you're free.\n We'll even let you practice first.\n\n"+
+"👤: What?! Any game? I will choose tic-tac-toe but only if I can play the first turn.\n\n"+
+"👺: Ooh, good choice! We have a version of that - we call it 𝟜-Play. It's just like tic-tac-toe, and you can go first if you think that will help\n\n"+
+"👺: Perhaps you will be the first to beat the devil.\n";
+   
 
