@@ -144,7 +144,7 @@ function _init_lobby() {
     menu("", false, m_main, (mi, go) => {
       switch (go) {
         case 0:
-          display("The Rules of Four-Play",gameRules);
+          display("The Rules of 𝟜-Play",gameRules);
           break;
         case 1:
           menu("Choose your opponent", true, m_ais, (ai, i) => {

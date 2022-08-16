@@ -2,7 +2,7 @@ let m_main = [
   {
     t: "The Devil's Rules",
     em: '🎓',
-    lt: "Learn the simple rules of the game"
+    lt: "Learn the simple rules of 𝟜-Play"
   },
   {
     t: "The Minions of Hell",
@@ -49,24 +49,27 @@ let m_ais = [
   {
     t: "Prince of Death",
     em: "☠",
-    lt:"The famous prince of Four-Play",
+    lt:"The famous prince of 𝟜-Play",
     pp: { d:2, pm: 1, opm:1, rn: 1 }
   },
   {
     t: "Satan Lord of Hell",
     em: "✪",
-    lt:"Never Beaten by a Mortal",
-    pp: { d:3, pm: 1, opm:1, rn: 1 }
+    lt:"Never beaten by a Mortal",
+    pp: { d:3, pm: 1, opm:1, rn: .01 }
   },
 ];
 
-let gameRules="The game is played by placing tokens in turn on a 4 x 4 x 4 grid much like 3D tic-tac-toe.\n\n"+
-   "You need to get 4 tokens of your colour in a straight line in any directions (including vertically and diagonally) to score.\n\n"+
+let gameRules="The game is played by placing tokens in turn on a 4 x 4 x 4 cubic grid much like 3D version of tic-tac-toe.\n\n"+
+   "You need to get 4 green tokens in a straight line in any directions to score.\n"+
+   "A line of tokens can be in any direction including downwards through the boards vertically; diagonally and diagonally through the boards.\n\n"+
    "The first player to get 7 straight lines wins.\n\nGood Luck!\n\n";
 
-let introText="After death you find your soul in the balance; you must beat the devil in a game of chance or skill to save yourself.\n\n"+
-   "You choose tic-tac-toe, but only if you could go first.....\n "+
-   "'Well', said the Devil, 'we have a version of that around here - we call it Four-Play.\n"+
-   "'It is just like tic-tac-toe, and you can go first.'\n\n\n";
+let introText="\nAfter death you find your soul in the balance; you must beat the devil in a game of chance or skill to save yourself.\n\n"+
+   "'What - any game?', you ask while desparately trying to think of something that you are good at.\n\n"+
+   "'I will choose tic-tac-toe.', you say at last, 'but only if I can play the first turn.'\n\n"+
+   "'Well', said the Devil, 'no problem there, we have a version of that around here - we call it 𝟜-Play. \n\n"+
+   "'It is just like tic-tac-toe, and you can go first if you think that will help.'\n\n\n"+
+   "'Perhaps you will be the first to beat me.'\n\n";
 
 
