@@ -461,6 +461,7 @@ function start_lobby() {
 }
 
 function init() {
+    start_lobby();
     p1 = {
         n: "Player 1",
         t: "l"
@@ -469,7 +470,6 @@ function init() {
         n: "Player 2",
         t: "l"
     };
-    startGame(p1, p2);
 }
 
 let m_main = [ {
