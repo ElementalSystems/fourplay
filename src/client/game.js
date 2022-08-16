@@ -36,7 +36,7 @@ async function startGame(p1,p2) {
   if (gs.sc.p1==gs.sc.p2)  
     bd.setB("DRAW!")
   else if (gs.sc.p1>gs.sc.p2)  
-    bd.setB(gs.p[0].n+" Wins","",true)
+    bd.setB(gs.p[0].n+" Wins",gs.p[1].pp?.lose?gs.p[1].pp.lose:"",true)
   else 
     bd.setB(gs.p[1].n+" Wins","",true)
   await wait(10000);  

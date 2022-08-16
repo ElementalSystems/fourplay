@@ -26,37 +26,37 @@ let m_ais = [
     t: "Servant Imp",
     em: "👿",
     lt:"A foolish little thing - stupid and careless",
-    pp: { d:1, pm: 1, opm:1, rn: 40  }
+    pp: { d:1, rn: 40 , lose:"Anyone can beat a servant imp!" }
   },
   {
     t: "Goblin Intellectual",
     em: "😈",
     lt:"A well trained player, but goblins aren't bright",
-    pp: { d:1, pm: 1, opm:1, rn: 10  }
+    pp: { d:1,  rn: 10 , lose:"You're smarter than a goblin; so what?" }
   },
   {
     t: "Vengence Demon",
     em: "👺",
     lt: "Plays well but easy to trick.",
-    pp: { d:1, pm: 1, opm:1, rn: 1 }
+    pp: { d:1, rn: 1, lose: "You're getting the hang of this, maybe you can compete." }
   },
   {
     t: "Duke of Hell",
     em: "👹",
     lt: "Skilled and dangerous, very hard to beat",
-    pp: { d:2, pm: 1, opm:1, rn: 10 }
+    pp: { d:2, rn: 10 , lose: "Not many humans can beat me - perhaps you are the one!" }
   },
   {
     t: "Prince of Death",
     em: "☠",
-    lt:"The famous prince of 𝟜-Play",
-    pp: { d:2, pm: 1, opm:1, rn: 1 }
+    lt:"The famous expert of 𝟜-Play",
+    pp: { d:2, rn: 1,lose: "The prince rages and swears never to play the game again."  }
   },
   {
     t: "Satan Lord of Hell",
     em: "✪",
     lt:"Never beaten by a Mortal",
-    pp: { d:3, pm: 1, opm:1, rn: .01 }
+    pp: { d:3, pm: 1, opm:1, rn: .01,lose: "Your soul is saved from the ravages of hell - you have beaten the devil himself."  }
   },
 ];
 

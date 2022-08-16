@@ -209,7 +209,7 @@ async function startGame(p1, p2) {
         return true;
     };
     while (await doTurn());
-    if (gs.sc.p1 == gs.sc.p2) bd.setB("DRAW!"); else if (gs.sc.p1 > gs.sc.p2) bd.setB(gs.p[0].n + " Wins", "", true); else bd.setB(gs.p[1].n + " Wins", "", true);
+    if (gs.sc.p1 == gs.sc.p2) bd.setB("DRAW!"); else if (gs.sc.p1 > gs.sc.p2) bd.setB(gs.p[0].n + " Wins", gs.p[1].pp?.lose ? gs.p[1].pp.lose : "", true); else bd.setB(gs.p[1].n + " Wins", "", true);
     await wait(1e4);
     lobby.reset();
 }
@@ -496,9 +496,8 @@ let m_ais = [ {
     lt: "A foolish little thing - stupid and careless",
     pp: {
         d: 1,
-        pm: 1,
-        opm: 1,
-        rn: 40
+        rn: 40,
+        lose: "Anyone can beat a servant imp!"
     }
 }, {
     t: "Goblin Intellectual",
@@ -506,9 +505,8 @@ let m_ais = [ {
     lt: "A well trained player, but goblins aren't bright",
     pp: {
         d: 1,
-        pm: 1,
-        opm: 1,
-        rn: 10
+        rn: 10,
+        lose: "You're smarter than a goblin; so what?"
     }
 }, {
     t: "Vengence Demon",
@@ -516,9 +514,8 @@ let m_ais = [ {
     lt: "Plays well but easy to trick.",
     pp: {
         d: 1,
-        pm: 1,
-        opm: 1,
-        rn: 1
+        rn: 1,
+        lose: "You're getting the hang of this, maybe you can compete."
     }
 }, {
     t: "Duke of Hell",
@@ -526,19 +523,17 @@ let m_ais = [ {
     lt: "Skilled and dangerous, very hard to beat",
     pp: {
         d: 2,
-        pm: 1,
-        opm: 1,
-        rn: 10
+        rn: 10,
+        lose: "Not many humans can beat me - perhaps you are the one!"
     }
 }, {
     t: "Prince of Death",
     em: "☠",
-    lt: "The famous prince of 𝟜-Play",
+    lt: "The famous expert of 𝟜-Play",
     pp: {
         d: 2,
-        pm: 1,
-        opm: 1,
-        rn: 1
+        rn: 1,
+        lose: "The prince rages and swears never to play the game again."
     }
 }, {
     t: "Satan Lord of Hell",
@@ -548,7 +543,8 @@ let m_ais = [ {
         d: 3,
         pm: 1,
         opm: 1,
-        rn: .01
+        rn: .01,
+        lose: "Your soul is saved from the ravages of hell - you have beaten the devil himself."
     }
 } ];
 
