@@ -368,6 +368,7 @@ function _init_lobby() {
     geclk("nxt", () => {
         ae.clk();
         reset();
+        document.documentElement.requestFullscreen();
     });
     menu = (title, showB, ops, act) => {
         ge("menu").innerHTML = "";

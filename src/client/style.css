@@ -89,7 +89,7 @@ legend {
 #nxt {
   position: absolute;
   right: 0rem;
-  bottom: 0rem;
+  top: 0rem;
   padding: .1rem 1rem;
   --glowcol: #F70;
 }
