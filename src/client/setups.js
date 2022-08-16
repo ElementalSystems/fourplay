@@ -77,9 +77,9 @@ let introText=
 "👺: You're dead.\n\n"+
 "👤: What?!! It's quite warm here.\n\n"+
 "👺: Yes. You're in Hell. Deal with it.\n The good news is that you've been bad but not very bad. Your soul is in the balance. You have 1 chance to save yourself."+
-" Beat the Devil and the game of your choice and you're free.\n We'll even let you practice first.\n\n"+
-"👤: What?! Any game? I will choose tic-tac-toe but only if I can play the first turn.\n\n"+
+" Beat the Devil at the game of your choice and you're free.\n We'll even let you practice first.\n\n"+
+"👤: What?! Any game? I  choose tic-tac-toe but only if I can play the first turn.\n\n"+
 "👺: Ooh, good choice! We have a version of that - we call it 𝟜-Play. It's just like tic-tac-toe, and you can go first if you think that will help\n\n"+
-"👺: Perhaps you will be the first to beat the devil.\n";
+"👺: Perhaps you will be the first to beat the devil himself.\n";
    
 
