@@ -17,7 +17,7 @@ function m_bd(gs) {
     levels.push(lev);
   }
   setTimeout(()=>{
-    [10,25,42,62].forEach((v,i)=>levels[i].style.top=v+'vh');            
+    [20,35,52,72].forEach((v,i)=>levels[i].style.top=v+'vh');            
   },10);
   //clone in the animation one
   cloneSP('gamebrd','brdlev',{ '--off': '2s' }).classList.toggle("ex",true);

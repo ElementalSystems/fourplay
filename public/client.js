@@ -110,7 +110,7 @@ function m_bd(gs) {
         levels.push(lev);
     }
     setTimeout(() => {
-        [ 10, 25, 42, 62 ].forEach((v, i) => levels[i].style.top = v + "vh");
+        [ 20, 35, 52, 72 ].forEach((v, i) => levels[i].style.top = v + "vh");
     }, 10);
     cloneSP("gamebrd", "brdlev", {
         "--off": "2s"

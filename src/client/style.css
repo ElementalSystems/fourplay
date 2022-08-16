@@ -4,6 +4,7 @@
   -webkit-backface-visibility: visible;
   backface-visibility:visible;
   transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
 }
 
 
@@ -34,7 +35,7 @@ body {
 
 #tit {
   padding: .5rem;
-  margin: 1rem;
+  margin: .5rem;
   text-align: center;
 }
 
@@ -49,14 +50,14 @@ body {
 #top {
   --glowcol: #F70;
   padding: .5rem;
-  margin: 1rem;
+  margin: .5rem;
   position: relative; 
 }
 
 
 #bot {
   padding: .5rem;
-  margin: 1rem;
+  margin: .5rem;
   position: relative;    
   flex-grow: 1;
   overflow-y: auto;
@@ -241,7 +242,7 @@ div.sc {
 #gameholder {
   display:flex;
   justify-content: center;
-  height:100vh;
+  height:95vh;
 
   perspective: 200vh;
   perspective-origin: 50% -50%;
@@ -265,10 +266,10 @@ div.sc {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
   transform: rotateX(90deg);
-  transform-origin: 50% 50%;
+  transform-origin: 50% 0%;
   position: absolute;
   left:0;
-  top: -20rem;
+  top: 100rem;
   transition: top 3s;  
 }
 
