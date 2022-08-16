@@ -245,8 +245,7 @@ div.sc {
   height:95vh;
 
   perspective: 200vh;
-  perspective-origin: 50% -50%;
-  animation: lookme 2s ease-out;
+  perspective-origin: calc(50% + 30vh) -50%;
 }
 
 
@@ -273,18 +272,41 @@ div.sc {
   transition: top 3s;  
 }
 
+
 @keyframes dropme {
-  from {top: 0vh;}
-  to {top: 60vh;}
+  from {top: +120vh;}
+  to {top: 20vh;}
 }
 
-.brdlev.ex {  
-  animation: dropme 5s var(--off) linear infinite;
-  opacity: .5;
+.brdlevd {
+  background: rgba(0,0,64,.3);
+  border: rgba(0,0,128,.8) 3px solid;
+  height: 52vh;
+  width: var(--bs);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  position: absolute;
+  left:0;
+  top:-120vh;
+  animation: dropme 1s linear forwards;
   pointer-events: none;
 }
 
+.brdlevd.x1 {
+  transform: rotateY(-90deg);
+  transform-origin: 0% 0%;      
+  border: rgba(0,0,128,.8) 3px solid;
+ 
+}
 
+.bldcol {
+  border: rgba(0,0,128,.8) 2px solid;
+}
+
+.brdlevd.x1 .bldcol {
+  border: rgba(0,0,128,.8) 10px solid;
+}
 .brdspot {
   margin:5px;
   border: 3px solid #00F;  

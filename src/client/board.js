@@ -19,12 +19,9 @@ function m_bd(gs) {
   setTimeout(()=>{
     [20,35,52,72].forEach((v,i)=>levels[i].style.top=v+'vh');            
   },10);
-  //clone in the animation one
-  cloneSP('gamebrd','brdlev',{ '--off': '2s' }).classList.toggle("ex",true);
-  cloneSP('gamebrd','brdlev',{ '--off': '2.5s' }).classList.toggle("ex",true);
-  cloneSP('gamebrd','brdlev',{ '--off': '3s' }).classList.toggle("ex",true);
-  cloneSP('gamebrd','brdlev',{ '--off': '3.5s' }).classList.toggle("ex",true);
-  cloneSP('gamebrd','brdlev',{ '--off': '4s' }).classList.toggle("ex",true);
+
+  for (var i=0;i<2;i+=1)//clone in the animation one
+     clone('gamebrd','brdlevd').classList.toggle("x"+i,true);
   
   
   
