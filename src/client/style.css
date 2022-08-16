@@ -22,7 +22,7 @@ body {
   max-width: 40rem;
   display: flex;
   flex-direction: column;
-  height: 100vh;  
+  height: 95vh;  
   transition: height 2s;
 }
 
